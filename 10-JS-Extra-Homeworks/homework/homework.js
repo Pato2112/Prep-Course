@@ -10,7 +10,23 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
-}
+  var matriz =[];
+  // key = prop = clave
+  for(var key in objeto){
+    //console.log(objeto[key]);
+    matriz.push([key,objeto[key]])
+  }
+  return matriz;
+
+  //tambien se puede hacer:
+  //for(var propiedad in objeto){
+    //matriz.push([propiedad,objeto[propiedad]])
+
+  //tambien así:
+  //return Object.entries(objeto);
+
+  }
+
 
 
 function numberOfCharacters(string) {
@@ -18,7 +34,22 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
-}
+  var cantcarcteres ={};
+  for(i=0; i< string.length;i++){
+    //se tiene la propiedad(key)con el nombre del valor que está almacenado en esa posision, preguntamos se 'a' está dentro de caracteres
+    if(cantcarcteres.hasOwnProperty(string[i])){
+      cantcarcteres[string[i]]++;
+
+    }else{
+      cantcarcteres[string[i]]=1
+      // tambien así:
+      //if(string[i]in cantcarcateres){
+        //cantcarecter[string[i]]++;
+      }
+    }
+    return cantcarcteres;
+  }
+
 
 
 function capToFront(s) {
@@ -26,6 +57,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var mayusc = '';
+  var minusc ='';
+  //i=0
+  for(var i =0; i<s.length;i++){
+    if (s[i]===s[i].toUpperCase()){
+      mayusc += s[i];
+    }else{
+      minusc += s[i];
+    }
+  }
+  return mayusc + minusc;
 }
 
 
@@ -35,6 +77,19 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  
+  var frasePorPalabras = frase.split(' ');
+
+  var fraseADevolver=[];
+  for(var i=0; i<frasePorPalabras.length;i++){
+    var palabra = frasePorPalabras[i];
+    var palabraSeparada = palabra.split('');
+    var palabraRevertida= palabraSeparada.reverse('');
+    var palabraUnida=palabraRevertida.join('');
+    fraseADevolver.push(palabraUnida);
+  }
+  return fraseADevolver.join(' ');
+
 } 
 
 
@@ -43,6 +98,13 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  let nuevoNumero = numero.toString();
+  let espejo ='';
+  for(let i=nuevoNumero.length-1;i>=0;i--){
+    espejo += nuevoNumero[i];
+  }
+  if(nuevoNumero===espejo)return 'Es capicua';
+  return 'No es capicua';
 }
 
 
@@ -50,6 +112,14 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+
+  let nuevaCadena ='';
+  for(var letra of cadena){
+    if (letra !=='a' && letra !=='b' && letra !=='c'){
+      nuevaCadena += letra;
+    }
+  }
+  return nuevaCadena;
 }
 
 
@@ -57,6 +127,12 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  
+  let callback = function(a, b){
+    return a.length -b.length;
+  };
+  return arr.sort(callback);
+  
 }
 
 
@@ -65,7 +141,16 @@ function buscoInterseccion(arreglo1, arreglo2){
   //retornar un nuevo array con la intersección de ambos elementos. (Ej: [4,2,3] unión [1,3,4] = [3,4].
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
-  //Escribe tu código aquí  
+  //Escribe tu código aquí 
+  let nuevoarray =[];
+  for(let e of arreglo1){
+    for(let i of arreglo2){
+      if(e===i){
+        nuevoarray.push(e);
+      }
+    }
+  }
+  return nuevoarray;
 }
 
 
