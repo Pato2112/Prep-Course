@@ -67,21 +67,21 @@ function colors(color) {
   //Caso default: devuelve --> "Color not found"
   //Usar el statement Switch.
   switch(color){
-    case 'blue':{
+    case 'blue':
       return 'This is blue'
-    }
-    case 'red':{
+    
+    case 'red':
       return 'This is red'
-    }
-    case'green':{
+    
+    case'green':
       return 'This is green'
-    }
-    case 'orange':{
+    
+    case 'orange':
       return 'This is orange'
-    }
-    default:{
+    
+    default:
       return 'Color not found'
-    }
+    
 
   }
 
@@ -102,6 +102,7 @@ function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
+
   if(numero <50 && numero > 20){
     return true; 
   }else{
@@ -117,6 +118,11 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
+  
+  //if(numero %1===0){
+  //return true;
+  //}return false;
+
   return numero % 1===0;
 }
 
@@ -223,7 +229,7 @@ function doWhile(numero) {
   do{
     numero = numero + 5
     i++
-
+    //ó i=i+1, en vez de i++
   }while(i < 8){
     return numero;
   }
